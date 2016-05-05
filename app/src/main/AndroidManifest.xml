@@ -1,0 +1,24 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.administrator.livewallpaper">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <service android:label="@string/app_name"
+            android:name=".LiveWallpaper"
+            android:permission="android.permission.BIND_WALLPAPER">
+            <!-- 为动态壁纸配置intent-filter -->
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <!-- 为动态壁纸配置meta-data -->
+            <meta-data android:name="android.service.wallpaper"
+                android:resource="@xml/livewallpaper" />
+        </service>
+
+    </application>
+
+</manifest>
